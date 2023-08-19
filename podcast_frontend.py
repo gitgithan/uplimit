@@ -5,7 +5,7 @@ import os
 
 
 def main():
-    st.title("Newsletter Dashboard")
+    st.title("Newsletter Dashboard v2")
 
     available_podcast_info = create_dict_from_json_files(".")
 
@@ -110,11 +110,17 @@ def main():
 
         with col3:
             st.subheader("Podcast Guest")
-            st.write(podcast_info["podcast_guest"]["name"])
+            try:
+                st.write(podcast_info["podcast_guest"]["name"])
+            except:
+                st.write("no guest name")
 
         with col4:
             st.subheader("Podcast Guest Details")
-            st.write(podcast_info["podcast_guest"]["summary"])
+            try:
+                st.write(podcast_info["podcast_guest"]["summary"])
+            except:
+                st.write("no guest summary")
 
         # Display the five key moments
         st.subheader("Key Moments")
